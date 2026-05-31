@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import { Building2, LogOut } from 'lucide-react'
 import { useAuth } from '@/features/auth/use-auth'
+import { ThemeToggle } from '@/components/theme/ThemeToggle'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -25,8 +26,10 @@ export function AppLayout() {
             <span>Admin Dashboard</span>
           </div>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
+          <div className="flex items-center gap-1">
+            <ThemeToggle />
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm" className="max-w-[200px]">
                 <span className="truncate">{user?.email}</span>
               </Button>
@@ -41,7 +44,8 @@ export function AppLayout() {
                 Sign out
               </DropdownMenuItem>
             </DropdownMenuContent>
-          </DropdownMenu>
+            </DropdownMenu>
+          </div>
         </div>
       </header>
 
