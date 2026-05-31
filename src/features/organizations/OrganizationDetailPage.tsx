@@ -3,6 +3,7 @@ import { ArrowLeft, Loader2 } from 'lucide-react'
 import type { MemberStatus } from '@/types/db'
 import { useOrganization } from './hooks'
 import { useMembers } from '@/features/members/hooks'
+import { InviteMemberForm } from '@/features/members/InviteMemberForm'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
 import {
@@ -74,6 +75,8 @@ export function OrganizationDetailPage() {
 
       <section className="space-y-3">
         <h2 className="text-lg font-medium">Members</h2>
+
+        <InviteMemberForm organizationId={id} />
 
         {members.isLoading && (
           <div className="space-y-2">
