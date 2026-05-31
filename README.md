@@ -150,4 +150,5 @@ and the production release.
 
 ## Loom overview
 
-<!-- Add your Loom video link here -->
+A short walkthrough of the app and the key implementation decisions:
+https://www.loom.com/share/016d5ffc2ccf4d2183a99371070033c5
