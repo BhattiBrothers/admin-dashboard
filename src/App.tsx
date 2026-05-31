@@ -4,6 +4,7 @@ import { AppLayout } from '@/components/layout/AppLayout'
 import { SignInPage } from '@/features/auth/SignInPage'
 import { SignUpPage } from '@/features/auth/SignUpPage'
 import { OrganizationsPage } from '@/features/organizations/OrganizationsPage'
+import { OrganizationDetailPage } from '@/features/organizations/OrganizationDetailPage'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route element={<ProtectedRoute />}>
         <Route element={<AppLayout />}>
           <Route path="/" element={<OrganizationsPage />} />
+          <Route path="/organizations/:id" element={<OrganizationDetailPage />} />
         </Route>
       </Route>
 
