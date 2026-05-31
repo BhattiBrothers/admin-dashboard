@@ -1,31 +1,29 @@
-import { Building2 } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import { ProtectedRoute } from '@/routes/ProtectedRoute'
+import { AppLayout } from '@/components/layout/AppLayout'
+import { SignInPage } from '@/features/auth/SignInPage'
+import { SignUpPage } from '@/features/auth/SignUpPage'
+import { OrganizationsPage } from '@/features/organizations/OrganizationsPage'
+import { OrganizationDetailPage } from '@/features/organizations/OrganizationDetailPage'
 
 function App() {
   return (
-    <div className="flex min-h-svh items-center justify-center bg-background p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="items-center text-center">
-          <div className="mb-2 flex size-12 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-            <Building2 className="size-6" />
-          </div>
-          <CardTitle className="text-2xl">Admin Dashboard</CardTitle>
-          <CardDescription>
-            Foundation is ready. Auth, organizations & invitations coming next.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="flex justify-center">
-          <Button>Setup complete ✓</Button>
-        </CardContent>
-      </Card>
-    </div>
+    <Routes>
+      {/* Public routes */}
+      <Route path="/sign-in" element={<SignInPage />} />
+      <Route path="/sign-up" element={<SignUpPage />} />
+
+      {/* Protected routes */}
+      <Route element={<ProtectedRoute />}>
+        <Route element={<AppLayout />}>
+          <Route path="/" element={<OrganizationsPage />} />
+          <Route path="/organizations/:id" element={<OrganizationDetailPage />} />
+        </Route>
+      </Route>
+
+      {/* Fallback */}
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   )
 }
 
