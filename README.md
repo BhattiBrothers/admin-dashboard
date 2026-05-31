@@ -13,11 +13,20 @@ organizations they manage.
 
 ## Seeded test credentials
 
-Use these to sign in to the deployed app without registering:
+Use these to sign in to the deployed apps without registering.
+
+**Production** — https://admin-dashboard-rose-psi-59.vercel.app/
 
 ```
-Email:    admin@bhattibrothers.dev
-Password: Admin12345
+Email:    bhatti.admin@gmail.com
+Password: bhatti12345
+```
+
+**Preview (development)** — https://admin-dashboard-git-development-bhatti-brothers-projects.vercel.app/
+
+```
+Email:    umer.admin@gmail.com
+Password: umer12345
 ```
 
 ## Tech stack
